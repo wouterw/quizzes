@@ -19,7 +19,7 @@
 
 @implementation AnswerViewControllerFactory
 
-+ (UIViewController *)viewControllerWithQuestion:(Question *)aQuestion {
++ (AnswerViewController *)viewControllerWithQuestion:(Question *)aQuestion {
     AnswerViewController *vc;
     
     if ([aQuestion isMemberOfClass:[MultipleChoiceQuestion class]]) {

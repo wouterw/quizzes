@@ -9,6 +9,7 @@
 #import "QuizViewController.h"
 
 #import "QuizFactory.h"
+#import "AnswerViewController.h"
 #import "AnswerViewControllerFactory.h"
 
 #import "Quiz.h"
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) Question *currentQuestion;
 @property (nonatomic, strong) NSNumber *points;
 
-@property (nonatomic, strong) UIViewController *answerViewController;
+@property (nonatomic, strong) AnswerViewController *answerViewController;
 
 - (NSString *)progress;
 - (void)nextQuestion;
@@ -50,7 +51,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self nextQuestion];
 }
 
@@ -65,17 +65,40 @@
     );
 }
 
+#pragma mark - AnswerViewController Delegate
+
+- (void)answerViewController:(AnswerViewController *)answerViewController
+      didSelectAnswerAtIndex:(NSInteger)index {
+    NSLog(@"QuizViewController recieved didSelectAnswerAtIndex: %d", index);
+    self.nextButton.enabled = YES;
+}
+
 #pragma mark - View Actions
 
 - (IBAction)next:(id)sender {
+    if ([self isLastQuestion]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;
+    }
+    
     [self nextQuestion];
 }
 
 #pragma mark - Helpers
 
+- (BOOL)isLastQuestion {
+    return [self.quiz.questions indexOfObject:self.currentQuestion] == self.quiz.numberOfQuestion - 1;
+}
+
 - (void)nextQuestion {
     // new question
     self.currentQuestion = self.questions.nextObject;
+    
+    // display next button
+    if ([self isLastQuestion]) {
+        [self.nextButton setTitle:@"Finish" forState:UIControlStateNormal];
+    }
+    self.nextButton.enabled = NO;
     
     // display new question
     if (self.currentQuestion) {
@@ -90,6 +113,7 @@
     
     // initialize answer vc
     self.answerViewController = [AnswerViewControllerFactory viewControllerWithQuestion:self.currentQuestion];
+    self.answerViewController.delegate = self;
     [self addChildViewController:self.answerViewController];
     [self.answerViewController didMoveToParentViewController:self];
     

@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 Typework. All rights reserved.
 //
 
+#import "AnswerViewController.h"
+
 @class Quiz;
 @class Question;
 
-@interface QuizViewController : UIViewController
+@interface QuizViewController : UIViewController <AnswerViewControllerDelegate>
 
 @property (nonatomic, strong) Quiz *quiz;
 

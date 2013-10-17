@@ -15,43 +15,34 @@ static NSString *CellIdentifier = @"Cell";
 #pragma mark - View Lifecycle
 
 - (void)loadView {
-//    UICollectionViewLayout *collectionViewLayout = [[UICollectionViewLayout alloc] init];
-//    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:collectionViewLayout];
-//    collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    collectionView.delegate = self;
-//    collectionView.dataSource = self;
-//    [collectionView setBackgroundColor:[UIColor whiteColor]];
-//    [collectionView reloadData];
-//
-//    self.view = collectionView;
-    [super loadView];
+    UICollectionViewFlowLayout *collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull
+                                                          collectionViewLayout:collectionViewLayout];
+    
+    collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    
+    [collectionView setBackgroundColor:[UIColor whiteColor]];
+    [collectionView reloadData];
+    
+    [collectionView registerClass:[UICollectionViewCell class]
+       forCellWithReuseIdentifier:CellIdentifier];
+    
+    self.view = collectionView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UICollectionViewLayout *collectionViewLayout = [[UICollectionViewLayout alloc] init];
-    UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    collectionViewFlowLayout.collectionView
-    
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:collectionViewLayout];
-    collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    [collectionView setBackgroundColor:[UIColor whiteColor]];
-    [collectionView reloadData];
-    
-    [self.view addSubview:collectionView];
-    
-    //[(UICollectionView *)self.view registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+    [(UICollectionView *)self.view reloadData];
 }
 
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return self.options.count;
-    return 4;
+    return self.options.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -62,8 +53,7 @@ static NSString *CellIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
-    //UIImage *img = self.options[indexPath.row];
-    UIImage *img = [UIImage imageNamed:@"ember"];
+    UIImage *img = self.options[indexPath.row];
     [cell addSubview:[[UIImageView alloc] initWithImage:img]];
     
     return cell;

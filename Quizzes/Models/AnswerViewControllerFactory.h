@@ -7,9 +7,10 @@
 //
 
 @class Question;
+@class AnswerViewController;
 
 @interface AnswerViewControllerFactory : NSObject
 
-+ (UIViewController *)viewControllerWithQuestion:(Question *)aQuestion;
++ (AnswerViewController *)viewControllerWithQuestion:(Question *)aQuestion;
 
 @end

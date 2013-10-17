@@ -19,10 +19,13 @@
     // [self applyStyleSheet];
     [self applyDefaults];
     
-    LanguageViewController *languageViewController = [[LanguageViewController alloc] init];
+    LanguageViewController *languageViewController =
+        [[LanguageViewController alloc] init];
     
     UINavigationController *navigationViewController =
         [[UINavigationController alloc] initWithRootViewController:languageViewController];
+    
+    navigationViewController.navigationBarHidden = YES;
     
     self.window.rootViewController = navigationViewController;
     

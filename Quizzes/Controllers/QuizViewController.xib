@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizViewController">
             <connections>
                 <outlet property="answerView" destination="BuW-Ap-sW8" id="xbu-fU-Bja"/>
+                <outlet property="nextButton" destination="Z3W-iM-8rr" id="bEy-v4-x3g"/>
                 <outlet property="pointsLabel" destination="eyQ-Wi-Kst" id="CkE-5k-Wp5"/>
                 <outlet property="progressLabel" destination="avI-zD-xHX" id="91r-8K-yM6"/>
                 <outlet property="questionLabel" destination="asz-Bn-iIh" id="CgL-uB-LZD"/>

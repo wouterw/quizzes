@@ -11,7 +11,7 @@
 @protocol AnswerViewControllerDelegate <NSObject>
 
 - (void)answerViewController:(AnswerViewController *)answerViewController
-      didSelectAnswerAtIndex:(NSInteger) index;
+      didSelectAnswerAtIndex:(NSInteger)index;
 
 @end
 
