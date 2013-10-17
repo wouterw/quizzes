@@ -10,7 +10,7 @@
 
 @implementation TrueFalseQuestion
 
-- (BOOL)correct:(id)answer {
+- (BOOL)isCorrect:(id)answer {
     UIButton *btn = answer;
     return btn.tag == [answer integerValue];
 }

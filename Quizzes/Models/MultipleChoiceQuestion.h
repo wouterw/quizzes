@@ -10,7 +10,6 @@
 
 @interface MultipleChoiceQuestion : Question
 
-@property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *answer;
 
 - (void)addOption:(NSString *)option;

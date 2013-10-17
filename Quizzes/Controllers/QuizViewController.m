@@ -69,8 +69,15 @@
 
 - (void)answerViewController:(AnswerViewController *)answerViewController
       didSelectAnswerAtIndex:(NSInteger)index {
-    NSLog(@"QuizViewController recieved didSelectAnswerAtIndex: %d", index);
+    
+    id answer = self.currentQuestion.options[index];
+    BOOL correct = [self.currentQuestion isCorrect:answer];
+    
+    if correct
+    
     self.nextButton.enabled = YES;
+    
+    NSLog(@"QuizViewController recieved didSelectAnswerAtIndex: %d", index);
 }
 
 #pragma mark - View Actions

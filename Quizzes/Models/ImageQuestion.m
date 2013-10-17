@@ -19,7 +19,7 @@
     self.options = [NSArray arrayWithArray:options];
 }
 
-- (BOOL)correct:(id)answer {
+- (BOOL)isCorrect:(id)answer {
     UIButton *btn = answer;
     NSString *givenAnswer = self.options[btn.tag];
     return givenAnswer == answer;

@@ -16,6 +16,6 @@
 
 - (id)initWithText:(NSString *)aText;
 
-- (BOOL)correct:(id)answer;
+- (BOOL)isCorrect:(id)answer;
 
 @end
