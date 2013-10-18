@@ -6,8 +6,14 @@
 //  Copyright (c) 2013 Typework. All rights reserved.
 //
 
-#import "MultipleChoiceQuestion.h"
+#import "Question.h"
 
-@interface ImageQuestion : MultipleChoiceQuestion
+@interface ImageQuestion : Question
+
+@property (nonatomic, assign) NSInteger answer;
+
+- (void)addOption:(NSString *)option;
+
+- (NSInteger)numberOfOptions;
 
 @end

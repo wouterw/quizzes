@@ -30,9 +30,9 @@
     
     ImageQuestion *q3 = [ImageQuestion questionWithText:@"What is Ember.js' logo?"];
     [q3 addOption:@"ember"];
-    [q3 addOption:@"backbone"];
     [q3 addOption:@"angular"];
-    q3.answer = @"ember";
+    [q3 addOption:@"backbone"];
+    q3.answer = 0;
     
     Quiz *aQuiz = [Quiz quizWithTitle:@"Typework Quiz" andDescription:@"A sample quiz"];
     

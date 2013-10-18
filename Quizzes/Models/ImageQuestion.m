@@ -12,17 +12,19 @@
 
 - (void)addOption:(NSString *)option {
     NSMutableArray *options = [NSMutableArray arrayWithArray:self.options];
-    
+
     UIImage *img = [UIImage imageNamed:option];
     [options addObject:img];
-    
+
     self.options = [NSArray arrayWithArray:options];
 }
 
-- (BOOL)correct:(id)answer {
-    UIButton *btn = answer;
-    NSString *givenAnswer = self.options[btn.tag];
-    return givenAnswer == answer;
+- (NSInteger)numberOfOptions {
+    return self.options.count;
+}
+
+- (BOOL)isCorrect:(NSInteger)optionIndex {
+    return self.answer == optionIndex;
 }
 
 @end
