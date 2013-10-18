@@ -62,15 +62,8 @@ static NSString *CellIdentifier = @"Cell";
 #pragma mark - UICollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate answerViewController:self didSelectAnswerAtIndex:indexPath.row];
-    
-    NSString *option = self.options[indexPath.row];
-    NSLog(@"Option selected: %@.", option);
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *option = self.options[indexPath.row];
-    NSLog(@"Option deselected: %@.", option);
+    [self.delegate answerViewController:self
+                 didSelectAnswerAtIndex:indexPath.row];
 }
 
 #pragma mark – UICollectionView DelegateFlowLayout

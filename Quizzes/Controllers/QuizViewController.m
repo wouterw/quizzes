@@ -74,17 +74,11 @@ static NSInteger PointsToIncrement = 5;
     if ([self.currentQuestion isCorrect:index]) {
         [self.awarder addPoints:PointsToIncrement];
         [self displayPoints];
-        
-        NSLog(@"Correct Answer!");
-    } else {
-        NSLog(@"Incorrect Answer!");
     }
     
     [self disableAnswerView];
     
     self.nextButton.enabled = YES;
-    
-    NSLog(@"QuizViewController recieved didSelectAnswerAtIndex: %d", index);
 }
 
 #pragma mark - View Actions

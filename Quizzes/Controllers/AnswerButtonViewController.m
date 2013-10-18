@@ -40,16 +40,11 @@
     [self.view addSubview:falseButton];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-}
-
 #pragma mark - View Actions
 
 - (void)answer:(UIButton *)sender {
-    [self.delegate answerViewController:self didSelectAnswerAtIndex:sender.tag];
-    
-    NSLog(@"Option selected: %d", sender.tag);
+    [self.delegate answerViewController:self
+                 didSelectAnswerAtIndex:sender.tag];
 }
 
 @end

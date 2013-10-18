@@ -53,10 +53,8 @@ static NSString *CellIdentifier = @"Cell";
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate answerViewController:self didSelectAnswerAtIndex:indexPath.row];
-    
-    NSString *option = self.options[indexPath.row];
-    NSLog(@"Option selected: %@.", option);
+    [self.delegate answerViewController:self
+                 didSelectAnswerAtIndex:indexPath.row];
 }
 
 @end
