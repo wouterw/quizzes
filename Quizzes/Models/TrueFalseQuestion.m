@@ -10,9 +10,9 @@
 
 @implementation TrueFalseQuestion
 
-- (BOOL)isCorrect:(id)answer {
-    UIButton *btn = answer;
-    return btn.tag == [answer integerValue];
+- (BOOL)isCorrect:(NSInteger)optionIndex {
+    BOOL givenAnswer = (BOOL)optionIndex;
+    return self.answer == givenAnswer;
 }
 
 @end

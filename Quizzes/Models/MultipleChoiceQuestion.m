@@ -21,10 +21,9 @@
     return self.options.count;
 }
 
-- (BOOL)correct:(id)answer {
-    UIButton *btn = answer;
-    NSString *givenAnswer = self.options[btn.tag];
-    return givenAnswer == answer;
+- (BOOL)isCorrect:(NSInteger)optionIndex {
+    NSString *givenAnswer = [self.options objectAtIndex:optionIndex];
+    return [self.answer isEqualToString:givenAnswer];
 }
 
 @end

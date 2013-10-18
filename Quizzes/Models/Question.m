@@ -24,7 +24,7 @@
     return self;
 }
 
-- (BOOL)isCorrect:(id)answer {
+- (BOOL)isCorrect:(NSInteger)optionIndex {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];

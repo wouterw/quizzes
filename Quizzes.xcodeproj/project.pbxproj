@@ -20,8 +20,6 @@
 		E93CD427180858CA00E342A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93CD426180858CA00E342A5 /* XCTest.framework */; };
 		E93CD428180858CA00E342A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93CD40D180858CA00E342A5 /* Foundation.framework */; };
 		E93CD429180858CA00E342A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93CD411180858CA00E342A5 /* UIKit.framework */; };
-		E93CD431180858CA00E342A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E93CD42F180858CA00E342A5 /* InfoPlist.strings */; };
-		E93CD433180858CA00E342A5 /* QuizzesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CD432180858CA00E342A5 /* QuizzesTests.m */; };
 		E93CD43F18085D4700E342A5 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CD43D18085D4700E342A5 /* QuizViewController.m */; };
 		E98A5319180991A700FE2AAB /* AnswerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98A5317180991A700FE2AAB /* AnswerTableViewController.m */; };
 		E98A531D180999C800FE2AAB /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = E98A531C180999C800FE2AAB /* Quiz.m */; };
@@ -67,9 +65,6 @@
 		E93CD41F180858CA00E342A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E93CD425180858CA00E342A5 /* QuizzesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizzesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93CD426180858CA00E342A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E93CD42E180858CA00E342A5 /* QuizzesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuizzesTests-Info.plist"; sourceTree = "<group>"; };
-		E93CD430180858CA00E342A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E93CD432180858CA00E342A5 /* QuizzesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizzesTests.m; sourceTree = "<group>"; };
 		E93CD43C18085D4700E342A5 /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizViewController.h; path = Controllers/QuizViewController.h; sourceTree = "<group>"; };
 		E93CD43D18085D4700E342A5 /* QuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizViewController.m; path = Controllers/QuizViewController.m; sourceTree = "<group>"; };
 		E98A5316180991A700FE2AAB /* AnswerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerTableViewController.h; path = Controllers/AnswerTableViewController.h; sourceTree = "<group>"; };
@@ -124,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				E93CD413180858CA00E342A5 /* Quizzes */,
-				E93CD42C180858CA00E342A5 /* QuizzesTests */,
 				E93CD40C180858CA00E342A5 /* Frameworks */,
 				E93CD40B180858CA00E342A5 /* Products */,
 			);
@@ -170,24 +164,6 @@
 				E93CD416180858CA00E342A5 /* InfoPlist.strings */,
 				E93CD419180858CA00E342A5 /* main.m */,
 				E93CD41B180858CA00E342A5 /* Quizzes-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E93CD42C180858CA00E342A5 /* QuizzesTests */ = {
-			isa = PBXGroup;
-			children = (
-				E93CD432180858CA00E342A5 /* QuizzesTests.m */,
-				E93CD42D180858CA00E342A5 /* Supporting Files */,
-			);
-			path = QuizzesTests;
-			sourceTree = "<group>";
-		};
-		E93CD42D180858CA00E342A5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E93CD42E180858CA00E342A5 /* QuizzesTests-Info.plist */,
-				E93CD42F180858CA00E342A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -325,7 +301,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93CD431180858CA00E342A5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93CD433180858CA00E342A5 /* QuizzesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +352,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				E93CD417180858CA00E342A5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E93CD42F180858CA00E342A5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E93CD430180858CA00E342A5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

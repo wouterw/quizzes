@@ -10,19 +10,6 @@
 
 @implementation AnswerButtonViewController
 
-
-#pragma mark - Initialization
-
-- (id)init {
-    self = [super init];
-
-    if (self) {
-        self.options = [NSArray arrayWithObjects:@NO, @YES, nil];
-    }
-    
-    return self;
-}
-
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad {

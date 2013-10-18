@@ -70,10 +70,11 @@
 - (void)answerViewController:(AnswerViewController *)answerViewController
       didSelectAnswerAtIndex:(NSInteger)index {
     
-    id answer = self.currentQuestion.options[index];
-    BOOL correct = [self.currentQuestion isCorrect:answer];
-    
-    if correct
+    if ([self.currentQuestion isCorrect:index]) {
+        NSLog(@"Correct!");
+    } else {
+        NSLog(@"Incorrect!");
+    }
     
     self.nextButton.enabled = YES;
     
