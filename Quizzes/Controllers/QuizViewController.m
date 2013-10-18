@@ -14,17 +14,18 @@
 
 #import "Quiz.h"
 #import "Question.h"
+#import "AwardManager.h"
 
+static NSInteger PointsToIncrement = 5;
 
 @interface QuizViewController ()
 
 @property (nonatomic, strong) NSEnumerator *questions;
 @property (nonatomic, strong) Question *currentQuestion;
-@property (nonatomic, strong) NSNumber *points;
+@property (nonatomic, strong, readonly) AwardManager *awarder;
 
 @property (nonatomic, strong) AnswerViewController *answerViewController;
 
-- (NSString *)progress;
 - (void)nextQuestion;
 
 @end
@@ -41,7 +42,7 @@
         self.quiz = [QuizFactory create];
         self.title = self.quiz.title;
         self.questions = [self.quiz.questions objectEnumerator];
-        self.points = 0;
+        _awarder = [AwardManager sharedInstance];
     }
     
     return self;
@@ -71,9 +72,12 @@
       didSelectAnswerAtIndex:(NSInteger)index {
     
     if ([self.currentQuestion isCorrect:index]) {
-        NSLog(@"Correct!");
+        [self.awarder addPoints:PointsToIncrement];
+        [self displayPoints];
+        
+        NSLog(@"Correct Answer!");
     } else {
-        NSLog(@"Incorrect!");
+        NSLog(@"Incorrect Answer!");
     }
     
     self.nextButton.enabled = YES;
@@ -103,16 +107,14 @@
     self.currentQuestion = self.questions.nextObject;
     
     // display next button
-    if ([self isLastQuestion]) {
-        [self.nextButton setTitle:@"Finish" forState:UIControlStateNormal];
-    }
+    if ([self isLastQuestion]) [self.nextButton setTitle:@"Finish" forState:UIControlStateNormal];
     self.nextButton.enabled = NO;
     
     // display new question
     if (self.currentQuestion) {
         self.questionLabel.text = self.currentQuestion.text;
-        self.progressLabel.text = [self progress];
-        self.pointsLabel.text = [NSString stringWithFormat:@"%d ", self.points.intValue];
+        [self displayProgress];
+        [self displayPoints];
     }
     
     // destroy answer vc
@@ -131,8 +133,12 @@
     [self.answerView addSubview:self.answerViewController.view];
 }
 
-- (NSString *)progress {
-    return [NSString stringWithFormat:@"%d of %d",
+- (void)displayPoints {
+    self.pointsLabel.text = [NSString stringWithFormat:@"%d ", self.awarder.points];
+}
+
+- (void)displayProgress {
+    self.progressLabel.text = [NSString stringWithFormat:@"%d of %d",
             [self.quiz.questions indexOfObject:self.currentQuestion] + 1,
             self.quiz.numberOfQuestion];
 }

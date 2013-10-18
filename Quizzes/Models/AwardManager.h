@@ -12,4 +12,6 @@
 
 + (AwardManager *)sharedInstance;
 
+- (NSInteger)addPoints:(NSInteger)points;
+
 @end
