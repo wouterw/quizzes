@@ -80,6 +80,8 @@ static NSInteger PointsToIncrement = 5;
         NSLog(@"Incorrect Answer!");
     }
     
+    [self disableAnswerView];
+    
     self.nextButton.enabled = YES;
     
     NSLog(@"QuizViewController recieved didSelectAnswerAtIndex: %d", index);
@@ -93,6 +95,7 @@ static NSInteger PointsToIncrement = 5;
         return;
     }
     
+    [self enableAnswerView];
     [self nextQuestion];
 }
 
@@ -131,6 +134,16 @@ static NSInteger PointsToIncrement = 5;
     self.answerViewController.view.frame = self.answerView.bounds;
     self.answerViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.answerView addSubview:self.answerViewController.view];
+}
+
+- (void)enableAnswerView {
+    self.answerView.alpha = 1.0f;
+    [self.answerView setUserInteractionEnabled:YES];
+}
+
+- (void)disableAnswerView {
+    self.answerView.alpha = 0.8f;
+    [self.answerView setUserInteractionEnabled:NO];
 }
 
 - (void)displayPoints {
